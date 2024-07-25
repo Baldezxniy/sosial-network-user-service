@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-@Profile("dev")
+@Profile("!prod")
 @Configuration
 public class OpenAPIDocConfig {
 
@@ -30,7 +30,6 @@ public class OpenAPIDocConfig {
   @Bean
   public OpenAPI openAPI() {
     return new OpenAPI()
-//            .addSecurityItem(new SecurityRequirement().addList("plaintext"));
             .info(
                     new Info()
                             .title(title)

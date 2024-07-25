@@ -29,3 +29,7 @@ spring:
     url: jdbc:postgresql://postgresql-database/users
     user: postgres
     password: password
+
+springdoc:
+  api-docs:
+    enabled: false
