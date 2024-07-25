@@ -1,0 +1,31 @@
+server:
+  port: 8082
+
+spring:
+  application.name: users
+  datasource:
+    url: jdbc:postgresql://postgresql-database/users
+    username: postgres
+    password: password
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-timeout: 30000
+      connection-test-query: select 1
+      maximum-pool-size: 10
+      minimum-idle: 10
+      initialization-fail-timeout: 1
+      leak-detection-threshold: 0
+      pool-name: "HikariPool-users-prod"
+      register-mbeans: true
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+  liquibase:
+    enabled: true
+    change-log: classpath:liquibase/db.changelog-master.yaml
+    url: jdbc:postgresql://postgresql-database/users
+    user: postgres
+    password: password

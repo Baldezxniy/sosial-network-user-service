@@ -1,0 +1,36 @@
+version: "3.0"
+
+networks:
+  skillbox-network:
+    driver: bridge
+
+#volumes:
+#  postgresql-database:
+#    driver: local
+
+services:
+  app:
+    build: .
+    networks:
+      - skillbox-network
+    container_name: app
+    depends_on:
+      - postgresql-database
+    ports:
+      - "8082:8082"
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+
+  postgresql-database:
+    image: postgres:15.1-alpine
+    networks:
+      - skillbox-network
+    container_name: postgresql-database
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=users
+#    volumes:
+#      - postgresql-database

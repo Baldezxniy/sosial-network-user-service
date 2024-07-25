@@ -1,0 +1,16 @@
+databaseChangeLog:
+  - include:
+      file: schemas.sql
+      relativeToChangelogFile: true
+  - include:
+      file: /changesets/V1__create_users_table.sql
+      relativeToChangelogFile: true
+  - include:
+      file: /changesets/V2__create_subscriptions_table.sql
+      relativeToChangelogFile: true
+  - include:
+      file: /changesets/V3__create_hard_skills_table.sql
+      relativeToChangelogFile: true
+  - include:
+      file: /changesets/V4__create_users_hard_skills_table.sql
+      relativeToChangelogFile: true
