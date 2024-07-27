@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "subscription", schema = "schema_users")
+@Table(name = "subscriptions", schema = "schema_users")
 public class SubscribeEntity {
 
   @EmbeddedId
